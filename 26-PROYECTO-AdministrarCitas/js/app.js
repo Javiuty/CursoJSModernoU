@@ -272,3 +272,37 @@ function cargarEdicion(cita) {
 
   editando = true;
 }
+
+function longestConsec(strarr, k) {
+  // We set the max as the first number of the array
+  let max = strarr[0].length + strarr[1].length;
+
+  if (strarr.length % 2 !== 0) {
+    for (let i = 0; i < strarr.length; i = i + 1) {
+      if (strarr[i].length + strarr[i + 1].length > max) {
+        max = strarr[i] + strarr[i + 1];
+      }
+    }
+  } else {
+    for (let i = 0; i < strarr.length - 1; i = i + 1) {
+      if (strarr[i].length + strarr[i + 1].length > max) {
+        max = strarr[i] + strarr[i + 1];
+      }
+    }
+  }
+
+  console.log(max);
+}
+
+console.log(
+  longestConsec(
+    [
+      "ejjjjmmtthh",
+      "zxxuueeg",
+      "aanlljrrrxx",
+      "dqqqaaabbb",
+      "oocccffuucccjjjkkkjyyyeehh",
+    ],
+    2
+  )
+);
